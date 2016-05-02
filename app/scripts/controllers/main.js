@@ -9,11 +9,13 @@
  */
 angular.module('ngPracticeApp')
   .controller('MainCtrl',function($scope, current) {
-    $scope.current = current.query();
+    $scope.citiesFound = citySearch.find();
 
-    $scope.refreshCurrent = function() {
-      $scope.current = current.query({
-        location: $scope.location
+    $scope.findCities = function() {
+      $scope.query = citySearch.find({
+        query: $scope.location
       });
+      $scope.searchQuery = $scope.location;
     };
+
   });
